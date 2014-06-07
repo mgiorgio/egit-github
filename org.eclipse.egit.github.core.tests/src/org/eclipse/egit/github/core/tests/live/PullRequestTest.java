@@ -4,7 +4,7 @@
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
  *  http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  *  Contributors:
  *    Kevin Sawicki (GitHub Inc.) - initial API and implementation
  *******************************************************************************/
@@ -51,14 +51,14 @@ public class PullRequestTest extends LiveTest {
 
 	/**
 	 * Test fetching a pull request
-	 * 
+	 *
 	 * @throws IOException
 	 */
 	@Test
 	public void fetch() throws IOException {
 		PullRequestService service = new PullRequestService(client);
 		PullRequest request = service.getPullRequest(new SearchRepository(
-				"technoweenie", "faraday"), 15);
+				"lostisland", "faraday"), 15);
 		assertNotNull(request);
 		assertNotNull(request.getHtmlUrl());
 		assertNotNull(request.getDiffUrl());
@@ -69,14 +69,14 @@ public class PullRequestTest extends LiveTest {
 
 	/**
 	 * Test fetching all pull requests
-	 * 
+	 *
 	 * @throws IOException
 	 */
 	@Test
 	public void fetchAll() throws IOException {
 		PullRequestService service = new PullRequestService(client);
 		List<PullRequest> requests = service.getPullRequests(
-				new SearchRepository("technoweenie", "faraday"),
+				new SearchRepository("lostisland", "faraday"),
 				IssueService.STATE_CLOSED);
 		assertNotNull(requests);
 		assertFalse(requests.isEmpty());
@@ -92,13 +92,13 @@ public class PullRequestTest extends LiveTest {
 
 	/**
 	 * Test getting pull request comments
-	 * 
+	 *
 	 * @throws IOException
 	 */
 	@Test
 	public void fetchComments() throws IOException {
 		PullRequestService service = new PullRequestService(client);
-		RepositoryId repo = RepositoryId.create("defunkt", "resque");
+		RepositoryId repo = RepositoryId.create("resque", "resque");
 		List<CommitComment> comments = service.getComments(repo, 277);
 		assertNotNull(comments);
 		assertFalse(comments.isEmpty());
