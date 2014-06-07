@@ -65,6 +65,7 @@ public class PullRequestTest {
 		assertEquals(0, request.getId());
 		assertNull(request.getMilestone());
 		assertNull(request.getAssignee());
+		assertEquals(0, request.getReviewComments());
 	}
 
 	/**
@@ -110,6 +111,7 @@ public class PullRequestTest {
 		User user = new User().setLogin("cuser");
 		assertEquals(user, request.setUser(user).getUser());
 		assertEquals(70, request.setId(70).getId());
+		assertEquals(80, request.setReviewComments(80).getReviewComments());
 
 		User assignee = new User().setLogin("assignee");
 		assertEquals(assignee, request.setAssignee(assignee).getAssignee());

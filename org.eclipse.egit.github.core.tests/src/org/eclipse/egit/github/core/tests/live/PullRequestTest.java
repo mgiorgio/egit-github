@@ -58,11 +58,13 @@ public class PullRequestTest extends LiveTest {
 	public void fetch() throws IOException {
 		PullRequestService service = new PullRequestService(client);
 		PullRequest request = service.getPullRequest(new SearchRepository(
-				"lostisland", "faraday"), 15);
+				"apache", "incubator-storm"), 84);
 		assertNotNull(request);
 		assertNotNull(request.getHtmlUrl());
 		assertNotNull(request.getDiffUrl());
 		assertNotNull(request.getPatchUrl());
+		assertEquals(13, request.getComments());
+		assertEquals(16, request.getReviewComments());
 		checkMarker(request.getHead());
 		checkMarker(request.getBase());
 	}

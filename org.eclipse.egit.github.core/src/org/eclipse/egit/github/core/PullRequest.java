@@ -81,6 +81,8 @@ public class PullRequest implements Serializable {
 
 	private User user;
 
+	private int reviewComments;
+
 	/**
 	 * @return mergeable
 	 */
@@ -542,6 +544,15 @@ public class PullRequest implements Serializable {
 	 */
 	public PullRequest setAssignee(User assignee) {
 		this.assignee = assignee;
+		return this;
+	}
+
+	public int getReviewComments() {
+		return reviewComments;
+	}
+
+	public PullRequest setReviewComments(int reviewComments) {
+		this.reviewComments = reviewComments;
 		return this;
 	}
 
